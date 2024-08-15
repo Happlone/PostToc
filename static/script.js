@@ -160,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //只有手机才加载目录开关
     if (isMobileDevice()) {
+        toc.classList.toggle('hidden');
         // 创建目录切换按钮
         var tocToggle = document.createElement('button');
         tocToggle.id = 'toc-toggle';
