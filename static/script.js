@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 高亮当前可视区域的标题对应的目录项
     function highlightCurrentHeading() {
         let currentHeadingId = null;
-        let offset = window.innerHeight * 0.25; // 设定一个偏移量，确保标题进入视口就被检测
+        let offset = window.innerHeight * 0.1; // 设定一个偏移量，确保标题进入视口就被检测
 
         headings.forEach(function (heading) {
             const rect = heading.getBoundingClientRect();
