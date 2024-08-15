@@ -153,31 +153,41 @@ document.addEventListener("DOMContentLoaded", function () {
         return false;
     };
 
-    // 创建目录切换按钮
-    var tocToggle = document.createElement('button');
-    tocToggle.id = 'toc-toggle';
-    tocToggle.textContent = '隐藏目录'; // 初始按钮文字
-    tocToggle.className = 'toc-toggle';
-    document.body.appendChild(tocToggle);
+    //检测用户ui
+    function isMobileDevice() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(window.navigator.userAgent);
+    }
 
-    // 目录切换按钮事件
-    tocToggle.addEventListener('click', function () {
-        toc.classList.toggle('hidden'); // 切换目录显示状态
+    //只有手机才加载目录开关
+    if (isMobileDevice()) {
+        // 创建目录切换按钮
+        var tocToggle = document.createElement('button');
+        tocToggle.id = 'toc-toggle';
+        tocToggle.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 5.5A2.5 2.5 0 0 1 3.5 3h9A2.5 2.5 0 0 1 15 5.5v9A2.5 2.5 0 0 1 12.5 17h-9A2.5 2.5 0 0 1 1 14.5v-9zM3.5 4A1.5 1.5 0 0 0 2 5.5v9A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 12.5 4h-9zM5 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5A.5.5 0 0 1 5 8zm0 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm5-8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+        `;
+        tocToggle.className = 'toc-toggle';
+        document.body.appendChild(tocToggle);
 
-        // 切换按钮文字
+        // 目录切换按钮事件
+        tocToggle.addEventListener('click', function () {
+            toc.classList.toggle('hidden'); // 切换目录显示状态
+
+            // 切换按钮文字
+            if (toc.classList.contains('hidden')) {
+                tocToggle.style.backgroundColor = '#487b96'; // 目录隐藏时的颜色
+            } else {
+                tocToggle.style.backgroundColor = '#6f7f87'; // 目录显示时的颜色
+            }
+        });
+
+        // 初始按钮颜色
         if (toc.classList.contains('hidden')) {
-            tocToggle.textContent = '显示目录'; // 目录隐藏时的文字
             tocToggle.style.backgroundColor = '#487b96'; // 目录隐藏时的颜色
         } else {
-            tocToggle.textContent = '隐藏目录'; // 目录显示时的文字
             tocToggle.style.backgroundColor = '#6f7f87'; // 目录显示时的颜色
         }
-    });
-
-    // 初始按钮颜色
-    if (toc.classList.contains('hidden')) {
-        tocToggle.style.backgroundColor = '#487b96'; // 目录隐藏时的颜色
-    } else {
-        tocToggle.style.backgroundColor = '#6f7f87'; // 目录显示时的颜色
     }
 });
