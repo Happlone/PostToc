@@ -16,3 +16,20 @@
 3. 显示或隐藏目录按钮。
 4. 适配手机端。
 5. 随文章滚动高亮相应的目录项。
+
+## 补充
+
+同时修改2处判断语句可以自定义生效页面：
+
+`$widget->is('single')` 所有文章和独立页面
+`index` 主页
+`page` 独立页面
+`post` 所有文章
+`archive` ~~归档界面~~
+`category` ~~分类界面~~
+`tag` 未知
+
+也可以这样：
+`$widget->is('page', 'about')`
+`$widget->is('post', 1)`
+`$widget->is('category', 'default')`
