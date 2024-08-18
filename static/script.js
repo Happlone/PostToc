@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // 长按关闭按钮事件
-        const longPressTime = 600;
+        const longPressTime = 400;
         let pressTimer;
         tocToggle.addEventListener('touchstart', startPress);
         tocToggle.addEventListener('touchend', cancelPress);
