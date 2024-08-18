@@ -14,7 +14,6 @@
 1. 修改按钮样貌为图标
 2. 默认只有手机端加载目录隐藏按钮
 3. 按钮新增长按消失功能
-4. 若存在定位问题，需要微调`script.js`中的`offset`变量参数
 
 ### V1.0.0: 
 1. 实现目录基本功能。
@@ -40,3 +39,5 @@
 + `$widget->is('page', 'about')`
 + `$widget->is('post', 1)`
 + `$widget->is('category', 'default')`
+
+若存在定位不准问题，需要微调`script.js`中的`offset`变量参数
