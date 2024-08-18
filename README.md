@@ -24,7 +24,7 @@
 
 ## 使用说明
 
-同时修改`Plugin.php`中的2处判断语句可以自定义生效页面：
+1. 同时修改`Plugin.php`中的2处判断语句可以自定义生效页面：
 
 + `$widget->is('single')` 所有文章和独立页面
 + `index` 主页
@@ -40,4 +40,4 @@
 + `$widget->is('post', 1)`
 + `$widget->is('category', 'default')`
 
-若存在定位不准问题，需要微调`script.js`中的`offset`变量参数
+2. 若存在定位不准问题，需要微调`script.js`中的`offset`变量参数
