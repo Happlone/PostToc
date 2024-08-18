@@ -184,6 +184,26 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
+        // 长按关闭按钮事件
+        const longPressTime = 1000;
+        let pressTimer;
+        tocToggle.addEventListener('touchstart', startPress);
+        tocToggle.addEventListener('touchend', cancelPress);
+        tocToggle.addEventListener('touchcancel', cancelPress);
+
+        function startPress(event) {
+                clearTimeout(pressTimer);
+                pressTimer = setTimeout(() => {
+                        if (toc.classList.contains('hidden')) {
+                                tocToggle.style.display = 'none';
+                        }
+                }, longPressTime);
+        }
+
+        function cancelPress(event) {
+                clearTimeout(pressTimer);
+        }
+
         // 初始按钮颜色
         if (toc.classList.contains('hidden')) {
             tocToggle.style.backgroundColor = '#487b96'; // 目录隐藏时的颜色
